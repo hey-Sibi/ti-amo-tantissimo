@@ -137,6 +137,7 @@ function typeWriter() {
 window.onload = () => {
   typeWriter();
   showNextQuote();
+  setInterval(showNextQuote, 1000);
 };
 
 const timerElem = document.getElementById('timer');
