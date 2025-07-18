@@ -136,9 +136,7 @@ function typeWriter() {
 
 window.onload = () => {
   typeWriter();
-  showNextQuote();
 };
-  setInterval(showNextQuote, 1000);
 
 const timerElem = document.getElementById('timer');
 const startDate = new Date('2025-01-20T00:00:00');
