@@ -48,7 +48,7 @@ class Heart {
   update() {
     this.y += this.speed;
     this.angle += this.angleSpeed;
-    if (this.y > height + this.size) {
+    if(this.y > height + this.size) {
       this.reset();
       this.y = -this.size;
     }
@@ -57,7 +57,7 @@ class Heart {
 
 let hearts = [];
 const heartCount = 70;
-for (let i = 0; i < heartCount; i++) {
+for(let i=0; i < heartCount; i++) {
   hearts.push(new Heart());
 }
 
@@ -99,12 +99,7 @@ const quoteElem = document.getElementById('quotes');
 let currentIndex = -1;
 
 function showNextQuote() {
-  let newIndex;
-  do {
-    newIndex = Math.floor(Math.random() * quotes.length);
-  } while (newIndex === currentIndex);
-  currentIndex = newIndex;
-
+  currentIndex = (currentIndex + 1) % quotes.length;
   quoteElem.style.opacity = 0;
   setTimeout(() => {
     quoteElem.textContent = quotes[currentIndex];
@@ -114,7 +109,7 @@ function showNextQuote() {
 
 quoteElem.addEventListener('click', showNextQuote);
 quoteElem.addEventListener('keydown', e => {
-  if (e.key === "Enter" || e.key === " ") {
+  if(e.key === "Enter" || e.key === " ") {
     e.preventDefault();
     showNextQuote();
   }
@@ -125,7 +120,7 @@ const message = "Ti amo tantissimo";
 let index = 0;
 
 function typeWriter() {
-  if (index < message.length) {
+  if(index < message.length) {
     typedElem.textContent += message.charAt(index);
     index++;
     setTimeout(typeWriter, 120);
