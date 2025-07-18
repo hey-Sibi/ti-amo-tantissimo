@@ -99,13 +99,19 @@ const quoteElem = document.getElementById('quotes');
 let currentIndex = -1;
 
 function showNextQuote() {
-  currentIndex = (currentIndex + 1) % quotes.length;
+  let newIndex;
+  do {
+    newIndex = Math.floor(Math.random() * quotes.length);
+  } while (newIndex === currentIndex);
+  currentIndex = newIndex;
+
   quoteElem.style.opacity = 0;
   setTimeout(() => {
     quoteElem.textContent = quotes[currentIndex];
     quoteElem.style.opacity = 1;
   }, 500);
 }
+
 
 quoteElem.addEventListener('click', showNextQuote);
 quoteElem.addEventListener('keydown', e => {
