@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  background: linear-gradient(180deg, #8B0000 0%, #000000 100%);
+  overflow: hidden;
+  user-select: none;
+  color: #ff3333;
+  margin: 0;
+  padding: 0;
+}
+
+#heartCanvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  text-align: center;
+  padding: 20px;
+}
+
+.name {
+  font-family: 'Dancing Script', cursive;
+  font-size: 5vw;
+  color: #ff0000;
+  text-shadow:
+    0 0 5px #ff0000,
+    0 0 10px #ff3333,
+    0 0 20px #ff6666,
+    0 0 40px #ff0000;
+  animation: glowPulse 3s infinite alternate;
+  margin-bottom: 1rem;
+}
+
+@keyframes glowPulse {
+  0% {
+    text-shadow:
+      0 0 5px #ff0000,
+      0 0 10px #ff3333,
+      0 0 20px #ff6666,
+      0 0 40px #ff0000;
+    color: #ff4444;
+  }
+  100% {
+    text-shadow:
+      0 0 20px #ff4444,
+      0 0 30px #ff7777,
+      0 0 40px #ffaaaa,
+      0 0 60px #ff5555;
+    color: #ff2222;
+  }
+}
+
+#typedMessage {
+  font-size: 3vw;
+  color: #ff4444;
+  min-height: 4rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  white-space: nowrap;
+}
+
+#timer {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5vw;
+  color: #ff9999;
+  margin-top: 0;
+  min-height: 1.8rem;
+}
+
+#quotes {
+  all: unset;
+  display: inline-block;
+  font-family: 'Arial', sans-serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #ff6666cc;
+  text-shadow: 1px 1px 2px #660000cc;
+  cursor: pointer;
+  user-select: none;
+  min-height: 40px;
+  max-width: 600px;
+  width: 90vw;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 0, 0, 0.15);
+  transition: background-color 0.3s ease, opacity 0.5s ease, transform 0.15s ease;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+#quotes:hover, #quotes:focus {
+  background: rgba(255, 0, 0, 0.3);
+  outline: none;
+}
+
+#quotes.hide {
+  opacity: 0;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .name {
+    font-size: 2.2rem;
+  }
+
+  #typedMessage {
+    font-size: 1.5rem;
+  }
+
+  #timer {
+    font-size: 1rem;
+  }
+
+  #quotes {
+    font-size: 1rem;
+    padding: 6px 10px;
+    bottom: 20px;
+  }
+}
